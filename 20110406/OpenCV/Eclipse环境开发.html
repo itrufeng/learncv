@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>1、新建一个C++ Project</p>
+<p>2、[Project]-[Properties]-[C/C++ Build]-[Settings]-[GCC C++ Compiler]-[includes]添加</p>
+<p>/usr/local/include</p>
+<p>3、[MacOS X C++ Linker]-[Libraries]添加[Library search path]</p>
+<p>/usr/local/lib</p>
+<p>4、 [MacOS X C++ Linker]-[Libraries]添加[Libraries]</p>
+<p>opencv_calib3d<br />
+  opencv_contrib<br />
+  opencv_core<br />
+  opencv_features2d<br />
+  opencv_flann<br />
+  opencv_gpu<br />
+  opencv_highgui<br />
+  opencv_imgproc<br />
+  opencv_legacy<br />
+  opencv_ml<br />
+  opencv_objdetect<br />
+opencv_video</p>
+<p>5、测试</p>
+<p><pre>#include &lt;opencv/highgui.h&gt;
+
+int main(int args,char *argv[]){
+			// create a window
+			cvNamedWindow("mainWin", CV_WINDOW_AUTOSIZE);
+			cvMoveWindow("mainWin", 100, 100);
+			// wait for a key
+			cvWaitKey(0);
+			return 0;
+}
+</pre></p>
+</body>
+</html>
