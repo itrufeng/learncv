@@ -27,5 +27,10 @@ int main(int args,char *argv[]){
 	char *newImageStr = strcpy(argv[0],"newImage.jpg");
 	cvSaveImage(newImageStr,newImage);
 	cvWaitKey(0);
+	// ÊÍ·ÅÍ¼Ïñ
+	cvReleaseImage(&loadImage);
+	cvReleaseImage(&newImage);
+	// ÊÍ·Å´°¿Ú
+	cvDestroyWindow("new Image");
 	return 0;
 }
