@@ -1,51 +1,51 @@
 CreateImage
-´´½¨Í·²¢·ÖÅäÊý¾Ý 
+åˆ›å»ºå¤´å¹¶åˆ†é…æ•°æ® 
 
 IplImage* cvCreateImage( CvSize size, int depth, int channels );
 size 
-Í¼Ïñ¿í¡¢¸ß. 
+å›¾åƒå®½ã€é«˜. 
 depth 
-Í¼ÏñÔªËØµÄÎ»Éî¶È£¬¿ÉÒÔÊÇÏÂÃæµÄÆäÖÐÖ®Ò»£º 
-IPL_DEPTH_8U - ÎÞ·ûºÅ8Î»ÕûÐÍ 
-IPL_DEPTH_8S - ÓÐ·ûºÅ8Î»ÕûÐÍ 
-IPL_DEPTH_16U - ÎÞ·ûºÅ16Î»ÕûÐÍ 
-IPL_DEPTH_16S - ÓÐ·ûºÅ16Î»ÕûÐÍ 
-IPL_DEPTH_32S - ÓÐ·ûºÅ32Î»ÕûÐÍ 
-IPL_DEPTH_32F - µ¥¾«¶È¸¡µãÊý 
-IPL_DEPTH_64F - Ë«¾«¶È¸¡µãÊý 
+å›¾åƒå…ƒç´ çš„ä½æ·±åº¦ï¼Œå¯ä»¥æ˜¯ä¸‹é¢çš„å…¶ä¸­ä¹‹ä¸€ï¼š 
+IPL_DEPTH_8U - æ— ç¬¦å·8ä½æ•´åž‹ 
+IPL_DEPTH_8S - æœ‰ç¬¦å·8ä½æ•´åž‹ 
+IPL_DEPTH_16U - æ— ç¬¦å·16ä½æ•´åž‹ 
+IPL_DEPTH_16S - æœ‰ç¬¦å·16ä½æ•´åž‹ 
+IPL_DEPTH_32S - æœ‰ç¬¦å·32ä½æ•´åž‹ 
+IPL_DEPTH_32F - å•ç²¾åº¦æµ®ç‚¹æ•° 
+IPL_DEPTH_64F - åŒç²¾åº¦æµ®ç‚¹æ•° 
 channels 
-Ã¿¸öÔªËØ£¨ÏñËØ£©µÄÑÕÉ«Í¨µÀÊýÁ¿.¿ÉÒÔÊÇ 1, 2, 3 »ò 4.Í¨µÀÊÇ½»²æ´æÈ¡µÄ£¬ÀýÈçÍ¨³£µÄ²ÊÉ«Í¼ÏñÊý¾ÝÅÅÁÐÊÇ£º 
+æ¯ä¸ªå…ƒç´ ï¼ˆåƒç´ ï¼‰çš„é¢œè‰²é€šé“æ•°é‡.å¯ä»¥æ˜¯ 1, 2, 3 æˆ– 4.é€šé“æ˜¯äº¤å‰å­˜å–çš„ï¼Œä¾‹å¦‚é€šå¸¸çš„å½©è‰²å›¾åƒæ•°æ®æŽ’åˆ—æ˜¯ï¼š 
 b0 g0 r0 b1 g1 r1 ... 
-ËäÈ»Í¨³£ IPL Í¼Ïó¸ñÊ½¿ÉÒÔ´æÖü·Ç½»²æ´æÈ¡µÄÍ¼Ïñ£¬²¢ÇÒÒ»Ð©OpenCV Ò²ÄÜ´¦ÀíËû, µ«ÊÇÕâ¸öº¯ÊýÖ»ÄÜ´´½¨½»²æ´æÈ¡Í¼Ïñ. 
-º¯Êý cvCreateImage ´´½¨Í·²¢·ÖÅäÊý¾Ý£¬Õâ¸öº¯ÊýÊÇÏÂÁÐµÄËõÐ´ÐÍÊ½ 
+è™½ç„¶é€šå¸¸ IPL å›¾è±¡æ ¼å¼å¯ä»¥å­˜è´®éžäº¤å‰å­˜å–çš„å›¾åƒï¼Œå¹¶ä¸”ä¸€äº›OpenCV ä¹Ÿèƒ½å¤„ç†ä»–, ä½†æ˜¯è¿™ä¸ªå‡½æ•°åªèƒ½åˆ›å»ºäº¤å‰å­˜å–å›¾åƒ. 
+å‡½æ•° cvCreateImage åˆ›å»ºå¤´å¹¶åˆ†é…æ•°æ®ï¼Œè¿™ä¸ªå‡½æ•°æ˜¯ä¸‹åˆ—çš„ç¼©å†™åž‹å¼ 
 
 header = cvCreateImageHeader(size,depth,channels);
-cvCreateData(header); //Ö»ÊÇ´´½¨¿Õ¼ä£¬²¢²»»á³õÊ¼»¯¿Õ¼äÄÚµÄÊý¾Ý
+cvCreateData(header); //åªæ˜¯åˆ›å»ºç©ºé—´ï¼Œå¹¶ä¸ä¼šåˆå§‹åŒ–ç©ºé—´å†…çš„æ•°æ®
 
 ----------
 
 Copy
-¿½±´Ò»¸öÊý×é¸øÁíÒ»¸öÊý×é 
+æ‹·è´ä¸€ä¸ªæ•°ç»„ç»™å¦ä¸€ä¸ªæ•°ç»„ 
 
 void cvCopy( const CvArr* src, CvArr* dst, const CvArr* mask=NULL );
 src 
-ÊäÈëÊý×é¡£ 
+è¾“å…¥æ•°ç»„ã€‚ 
 dst 
-Êä³öÊý×é¡£ 
+è¾“å‡ºæ•°ç»„ã€‚ 
 mask 
-²Ù×÷ÑÚÂëÊÇ8±ÈÌØµ¥Í¨µÀµÄÊý×é£¬ËüÖ¸¶¨ÁËÊä³öÊý×éÖÐ±»¸Ä±äµÄÔªËØ¡£ 
-º¯ÊýcvCopy´ÓÊäÈëÊý×éÖÐ¸´ÖÆÑ¡¶¨µÄ³É·Öµ½Êä³öÊý×é£º 
-Èç¹ûmask(I)!=0,Ôòdst(I)=src(I)¡£ 
-Èç¹ûÊäÈëÊä³öÊý×éÖÐµÄÒ»¸öÊÇIplImageÀàÐÍµÄ»°£¬ÆäROIºÍCOI½«±»Ê¹ÓÃ¡£ÊäÈëÊä³öÊý×é±ØÐëÊÇÍ¬ÑùµÄÀàÐÍ¡¢Î¬ÊýºÍ´óÐ¡¡£º¯ÊýÒ²¿ÉÒÔÓÃÀ´¸´ÖÆÉ¢ÁÐÊý×é£¨ÕâÖÖÇé¿öÏÂ²»Ö§³Ömask£©¡£ 
+æ“ä½œæŽ©ç æ˜¯8æ¯”ç‰¹å•é€šé“çš„æ•°ç»„ï¼Œå®ƒæŒ‡å®šäº†è¾“å‡ºæ•°ç»„ä¸­è¢«æ”¹å˜çš„å…ƒç´ ã€‚ 
+å‡½æ•°cvCopyä»Žè¾“å…¥æ•°ç»„ä¸­å¤åˆ¶é€‰å®šçš„æˆåˆ†åˆ°è¾“å‡ºæ•°ç»„ï¼š 
+å¦‚æžœmask(I)!=0,åˆ™dst(I)=src(I)ã€‚ 
+å¦‚æžœè¾“å…¥è¾“å‡ºæ•°ç»„ä¸­çš„ä¸€ä¸ªæ˜¯IplImageç±»åž‹çš„è¯ï¼Œå…¶ROIå’ŒCOIå°†è¢«ä½¿ç”¨ã€‚è¾“å…¥è¾“å‡ºæ•°ç»„å¿…é¡»æ˜¯åŒæ ·çš„ç±»åž‹ã€ç»´æ•°å’Œå¤§å°ã€‚å‡½æ•°ä¹Ÿå¯ä»¥ç”¨æ¥å¤åˆ¶æ•£åˆ—æ•°ç»„ï¼ˆè¿™ç§æƒ…å†µä¸‹ä¸æ”¯æŒmaskï¼‰ã€‚ 
 
 ----------
 
 cvSaveImage 
-±£´æÍ¼Ïñµ½ÎÄ¼þ 
+ä¿å­˜å›¾åƒåˆ°æ–‡ä»¶ 
 
 int cvSaveImage( const char* filename, const CvArr* image );
 filename 
-ÎÄ¼þÃû¡£ 
+æ–‡ä»¶åã€‚ 
 image 
-Òª±£´æµÄÍ¼Ïñ¡£ 
-º¯ÊýcvSaveImage±£´æÍ¼Ïñµ½Ö¸¶¨ÎÄ¼þ¡£Í¼Ïñ¸ñÊ½µÄµÄÑ¡ÔñÒÀÀµÓÚfilenameµÄÀ©Õ¹Ãû£¬Çë²Î¿¼cvLoadImage¡£Ö»ÓÐ8Î»µ¥Í¨µÀ»òÕß3Í¨µÀ£¨Í¨µÀË³ÐòÎª'BGR' £©¿ÉÒÔÊ¹ÓÃÕâ¸öº¯Êý±£´æ¡£Èç¹û¸ñÊ½£¬Éî¶È»òÕßÍ¨µÀ²»·ûºÏÒªÇó£¬ÇëÏÈÓÃcvCvtScale ºÍcvCvtColor×ª»»£»»òÕßÊ¹ÓÃÍ¨ÓÃµÄcvSave±£´æÍ¼ÏñÎªXML»òÕßYAML¸ñÊ½¡£ 
+è¦ä¿å­˜çš„å›¾åƒã€‚ 
+å‡½æ•°cvSaveImageä¿å­˜å›¾åƒåˆ°æŒ‡å®šæ–‡ä»¶ã€‚å›¾åƒæ ¼å¼çš„çš„é€‰æ‹©ä¾èµ–äºŽfilenameçš„æ‰©å±•åï¼Œè¯·å‚è€ƒcvLoadImageã€‚åªæœ‰8ä½å•é€šé“æˆ–è€…3é€šé“ï¼ˆé€šé“é¡ºåºä¸º'BGR' ï¼‰å¯ä»¥ä½¿ç”¨è¿™ä¸ªå‡½æ•°ä¿å­˜ã€‚å¦‚æžœæ ¼å¼ï¼Œæ·±åº¦æˆ–è€…é€šé“ä¸ç¬¦åˆè¦æ±‚ï¼Œè¯·å…ˆç”¨cvCvtScale å’ŒcvCvtColorè½¬æ¢ï¼›æˆ–è€…ä½¿ç”¨é€šç”¨çš„cvSaveä¿å­˜å›¾åƒä¸ºXMLæˆ–è€…YAMLæ ¼å¼ã€‚ 

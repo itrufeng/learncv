@@ -1,29 +1,29 @@
 CvCapture 
-ÊÓÆµ»ñÈ¡½á¹¹ 
+è§†é¢‘è·å–ç»“æ„ 
 
 typedef struct CvCapture CvCapture;
-½á¹¹CvCapture Ã»ÓĞ¹«¹²½Ó¿Ú£¬ËüÖ»ÄÜ±»ÓÃÀ´×÷ÎªÊÓÆµ»ñÈ¡º¯ÊıµÄÒ»¸ö²ÎÊı¡£ 
+ç»“æ„CvCapture æ²¡æœ‰å…¬å…±æ¥å£ï¼Œå®ƒåªèƒ½è¢«ç”¨æ¥ä½œä¸ºè§†é¢‘è·å–å‡½æ•°çš„ä¸€ä¸ªå‚æ•°ã€‚ 
 
 ----------
 
 cvCreateCameraCapture 
-³õÊ¼»¯´ÓÉãÏñÍ·ÖĞ»ñÈ¡ÊÓÆµ 
+åˆå§‹åŒ–ä»æ‘„åƒå¤´ä¸­è·å–è§†é¢‘ 
 
 CvCapture* cvCreateCameraCapture( int index );
 index 
-ÒªÊ¹ÓÃµÄÉãÏñÍ·Ë÷Òı¡£Èç¹ûÖ»ÓĞÒ»¸öÉãÏñÍ·»òÕßÓÃÄÄ¸öÉãÏñÍ·Ò²ÎŞËùÎ½£¬ÄÇÊ¹ÓÃ²ÎÊı-1Ó¦¸Ã±ã¿ÉÒÔ¡£ 
-º¯ÊıcvCreateCameraCapture¸ø´ÓÉãÏñÍ·µÄÊÓÆµÁ÷·ÖÅäºÍ³õÊ¼»¯CvCapture½á¹¹¡£Ä¿Ç°ÔÚWindowsÏÂ¿ÉÊ¹ÓÃÁ½ÖÖ½Ó¿Ú£ºVideo for Windows£¨VFW£©ºÍMatrox Imaging Library£¨MIL£©£» LinuxÏÂÒ²ÓĞÁ½ÖÖ½Ó¿Ú£ºV4LºÍFireWire£¨IEEE1394£©¡£ 
+è¦ä½¿ç”¨çš„æ‘„åƒå¤´ç´¢å¼•ã€‚å¦‚æœåªæœ‰ä¸€ä¸ªæ‘„åƒå¤´æˆ–è€…ç”¨å“ªä¸ªæ‘„åƒå¤´ä¹Ÿæ— æ‰€è°“ï¼Œé‚£ä½¿ç”¨å‚æ•°-1åº”è¯¥ä¾¿å¯ä»¥ã€‚ 
+å‡½æ•°cvCreateCameraCaptureç»™ä»æ‘„åƒå¤´çš„è§†é¢‘æµåˆ†é…å’Œåˆå§‹åŒ–CvCaptureç»“æ„ã€‚ç›®å‰åœ¨Windowsä¸‹å¯ä½¿ç”¨ä¸¤ç§æ¥å£ï¼šVideo for Windowsï¼ˆVFWï¼‰å’ŒMatrox Imaging Libraryï¼ˆMILï¼‰ï¼› Linuxä¸‹ä¹Ÿæœ‰ä¸¤ç§æ¥å£ï¼šV4Lå’ŒFireWireï¼ˆIEEE1394ï¼‰ã€‚ 
 
-ÊÍ·ÅÕâ¸ö½á¹¹£¬Ê¹ÓÃº¯ÊıcvReleaseCapture¡£ 
+é‡Šæ”¾è¿™ä¸ªç»“æ„ï¼Œä½¿ç”¨å‡½æ•°cvReleaseCaptureã€‚ 
 
 ----------
 
 cvCreateFileCapture 
-³õÊ¼»¯´ÓÎÄ¼şÖĞ»ñÈ¡ÊÓÆµ 
+åˆå§‹åŒ–ä»æ–‡ä»¶ä¸­è·å–è§†é¢‘ 
 
 CvCapture* cvCreateFileCapture( const char* filename );
 filename 
-ÊÓÆµÎÄ¼şÃû¡£ 
-º¯ÊıcvCreateFileCapture¸øÖ¸¶¨ÎÄ¼şÖĞµÄÊÓÆµÁ÷·ÖÅäºÍ³õÊ¼»¯CvCapture½á¹¹¡£ 
+è§†é¢‘æ–‡ä»¶åã€‚ 
+å‡½æ•°cvCreateFileCaptureç»™æŒ‡å®šæ–‡ä»¶ä¸­çš„è§†é¢‘æµåˆ†é…å’Œåˆå§‹åŒ–CvCaptureç»“æ„ã€‚ 
 
-µ±·ÖÅäµÄ½á¹¹²»ÔÙÊ¹ÓÃµÄÊ±ºò£¬ËüÓ¦¸ÃÊ¹ÓÃcvReleaseCaptureº¯ÊıÊÍ·Åµô¡£ 
+å½“åˆ†é…çš„ç»“æ„ä¸å†ä½¿ç”¨çš„æ—¶å€™ï¼Œå®ƒåº”è¯¥ä½¿ç”¨cvReleaseCaptureå‡½æ•°é‡Šæ”¾æ‰ã€‚ 

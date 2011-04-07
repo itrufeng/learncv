@@ -8,13 +8,13 @@
 #include <opencv/highgui.h>
 
 int main(int args,char *argv[]){
-	printf("Í¼Æ¬Â·¾¶:%s",argv[1]);
-	// CV_LOAD_IMAGE_GRAYSCALE ÊÇÒÔ»Ò¶ÈÍ¼À´¼ÓÔØ
+	printf("å›¾ç‰‡è·¯å¾„:%s",argv[1]);
+	// CV_LOAD_IMAGE_GRAYSCALE æ˜¯ä»¥ç°åº¦å›¾æ¥åŠ è½½
 	IplImage *image = cvLoadImage(argv[1],CV_LOAD_IMAGE_GRAYSCALE);
-	// CV_WINDOW_AUTOSIZE ¶¯Ì¬µÄÒÔÄÚÈİÀ´¸Ä±ä´°¿Ú´óĞ¡
+	// CV_WINDOW_AUTOSIZE åŠ¨æ€çš„ä»¥å†…å®¹æ¥æ”¹å˜çª—å£å¤§å°
 	cvNamedWindow("load an image and view It",CV_WINDOW_AUTOSIZE);
 	cvShowImage("load an image and view It",image);
-	// µÈ´ıÏÂÒ»¸öÖ¸Áî
+	// ç­‰å¾…ä¸‹ä¸€ä¸ªæŒ‡ä»¤
 	cvWaitKey(0);
 	return 0;
 }

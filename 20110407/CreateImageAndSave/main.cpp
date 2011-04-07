@@ -9,28 +9,29 @@
 
 int main(int args,char *argv[]){
 	printf("%s",argv[0]);
-	// load an image
-	IplImage *loadImage = cvLoadImage(argv[1],CV_LOAD_IMAGE_ANYCOLOR);
-	// 获得图像大小
-	CvSize size;
-	size.width = loadImage->width;
-	size.height = loadImage->height;
-	// 创建一个大小为size的空图像
-	IplImage *newImage = cvCreateImage(size,loadImage->depth,3);
-	// 把加载的图像复制写入新图像中
-	cvCopy(loadImage,newImage,NULL);
-	// 创建图像
-	cvNamedWindow("new Image",CV_WINDOW_AUTOSIZE);
-	// 展示图像
-	cvShowImage("new Image",newImage);
-	// 保存图像
-	char *newImageStr = strcpy(argv[0],"newImage.jpg");
-	cvSaveImage(newImageStr,newImage);
-	cvWaitKey(0);
-	// 释放图像
-	cvReleaseImage(&loadImage);
-	cvReleaseImage(&newImage);
-	// 释放窗口
-	cvDestroyWindow("new Image");
+		// load an image
+		IplImage *loadImage = cvLoadImage(argv[1],CV_LOAD_IMAGE_ANYCOLOR);
+		// 鑾峰緱鍥惧儚澶у皬
+		CvSize size;
+		size.width = loadImage->width;
+		size.height = loadImage->height;
+		// 鍒涘缓涓�涓ぇ灏忎负size鐨勭┖鍥惧儚
+		IplImage *newImage = cvCreateImage(size,loadImage->depth,3);
+		// 鎶婂姞杞界殑鍥惧儚澶嶅埗鍐欏叆鏂板浘鍍忎腑
+		cvCopy(loadImage,newImage,NULL);
+		// 鍒涘缓鍥惧儚
+		cvNamedWindow("new Image",CV_WINDOW_AUTOSIZE);
+		// 灞曠ず鍥惧儚
+		cvShowImage("new Image",newImage);
+		// 淇濆瓨鍥惧儚
+		char *newImageStr = strcpy(argv[0],"newImage.jpg");
+		cvSaveImage(newImageStr,newImage);
+		cvWaitKey(0);
+		// 閲婃斁鍥惧儚
+		cvReleaseImage(&loadImage);
+		cvReleaseImage(&newImage);
+		// 閲婃斁绐楀彛
+		cvDestroyWindow("new Image");
+		return 0;
 	return 0;
 }

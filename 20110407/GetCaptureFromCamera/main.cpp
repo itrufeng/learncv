@@ -7,27 +7,27 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 int main(int args,char *argv[]){
-	// ÊÓÆµ½á¹¹
+	// è§†é¢‘ç»“æ„
 	CvCapture *capture = NULL;
-	// »ñµÃÉãÏñÍ·Êı¾İ
-	// CV_CAP_ANY ×Ô¶¯
+	// è·å¾—æ‘„åƒå¤´æ•°æ®
+	// CV_CAP_ANY è‡ªåŠ¨
 	capture = cvCreateCameraCapture(CV_CAP_ANY);
 	if (!capture) {
 		exit(0);
 	}
 	cvNamedWindow("camera",CV_WINDOW_AUTOSIZE);
-	// Í¼Æ¬½á¹¹
+	// å›¾ç‰‡ç»“æ„
 	IplImage *image = NULL;
 	while(image = cvQueryFrame(capture)){
-		// ·´É«´¦Àí
+		// åè‰²å¤„ç†
 		cvNot(image,image);
-		// ÏÖÊµÍ¼Ïñ
+		// ç°å®å›¾åƒ
 		cvShowImage("camera",image);
-		// ¼àÌı¼üÅÌÊäÈë£¬Èç¹ûÓĞÊäÈëÔòÌø³öwhile
+		// ç›‘å¬é”®ç›˜è¾“å…¥ï¼Œå¦‚æœæœ‰è¾“å…¥åˆ™è·³å‡ºwhile
 		if( cvWaitKey(2) >= 0 )
 			break;
 	}
-	// ÊÍ·ÅÊÓÆµ
+	// é‡Šæ”¾è§†é¢‘
 	cvReleaseCapture(&capture);
 	return 0;
 }

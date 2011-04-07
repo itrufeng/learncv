@@ -1,4 +1,4 @@
 argv[0]
-	����Ŀ¼
+	程序目录
 argv[1]
-	��һ������(ʹ��Run Configurations)����ͼƬ·������
+	第一个参数(使用Run Configurations)带入图片路径运行
