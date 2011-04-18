@@ -11,6 +11,7 @@ cvCreateCameraCapture
 
 CvCapture* cvCreateCameraCapture( int index );
 index 
+-1 代表随机一个摄像头
 要使用的摄像头索引。如果只有一个摄像头或者用哪个摄像头也无所谓，那使用参数-1应该便可以。 
 函数cvCreateCameraCapture给从摄像头的视频流分配和初始化CvCapture结构。目前在Windows下可使用两种接口：Video for Windows（VFW）和Matrox Imaging Library（MIL）； Linux下也有两种接口：V4L和FireWire（IEEE1394）。 
 
