@@ -1,0 +1,2 @@
+main.cpp->29行
+	cvCreateVideoWriter [Bug for mac.opencv2.2]
