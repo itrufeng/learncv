@@ -30,11 +30,12 @@ int main(int args,char *argv[]){
 	//
 	oneimage = cvLoadImage(argv[1],CV_LOAD_IMAGE_ANYCOLOR);
 	CvRect rect = cvRect(30,30,280,280);
-	// 设置感兴趣区域，只对这部分。设置后之对这部分处理
-	cvSetImageROI(oneimage,rect);
+	// 设置感兴趣区域，只对这部分。设置后之对这部分处理 需要调用OpenCV系统函数.也不是所有的OpenCV函数都会处理ROI 下面注释区域为 系统函数。调用时候需要注掉saturation(oneimage,-50);
+//	cvSetImageROI(oneimage,rect);
+//	cvAddS(oneimage,cvScalar(180),oneimage);
 	saturation(oneimage,20);
 	// 取消感兴趣区域
-	//cvResetImageROI(oneimage);
+	cvResetImageROI(oneimage);
 	cvShowImage("saturation",oneimage);
 	cvWaitKey(0);
 	//

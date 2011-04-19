@@ -7,6 +7,7 @@ void saturation(IplImage *inputImage,int value);
 
 cvSetImageROI
 基于给定的矩形设置感兴趣区域 
+// 只对OpenCV自己的函数起作用。
 
 void cvSetImageROI( IplImage* image, CvRect rect );
 image 
@@ -20,6 +21,7 @@ ROI 矩形.
 
 ResetImageROI
 释放图像的ROI 
+// 如果不释放。则图片大小就会只显示感兴趣区域
 
 void cvResetImageROI( IplImage* image );
 image 
