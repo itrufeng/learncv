@@ -1,0 +1,107 @@
+访问矩阵结构[可操作][不浪费空间]
+// 可以得到一个点，然后用指针运算符得到其他点
+// 通道的特点是连续的。例如一个3通道2维的矩阵。矩阵数据是:RGBRGBRGB… 一个通道一个字节 需要对指针+1就可以访问下一个通道。访问下一个像素。+3
+// 矩阵中step是矩阵的行长度，单位是字节。仅靠cols或width是无法在矩阵的不同行之间移动指针的。为了效率。图像在内存分配都是4字节的整倍数.即使是3个字节的的矩阵，最后一个字节也会留空。如果得到一个字节地址，可以用地址+step得到下一行的元素。
+cvPtr*D
+返回指向特殊数组元素的指针 
+
+uchar* cvPtr1D( const CvArr* arr, int idx0, int* type=NULL );
+uchar* cvPtr2D( const CvArr* arr, int idx0, int idx1, int* type=NULL );
+uchar* cvPtr3D( const CvArr* arr, int idx0, int idx1, int idx2, int* type=NULL );
+uchar* cvPtrND( const CvArr* arr, int* idx, int* type=NULL, int create_node=1, unsigned* precalc_hashval=NULL );
+arr 
+输入数组. 
+idx0 
+元素下标的第一个以0为基准的成员 
+idx1 
+元素下标的第二个以0为基准的成员 
+idx2 
+元素下标的第三个以0为基准的成员 
+idx 
+数组元素下标 
+type 
+可选的，矩阵元素类型输出参数 
+create_node 
+可选的，为稀疏矩阵输入的参数。如果这个参数非零就意味着被需要的元素如果不存在就会被创建。 
+precalc_hashval 
+可选的，为稀疏矩阵设置的输入参数。如果这个指针非NULL，函数不会重新计算节点的HASH值，而是从指定位置获取。这种方法有利于提高智能组合数据的操作（TODO: 提供了一个例子) 
+函数cvPtr*D 返回指向特殊数组元素的指针。数组维数应该与转递给函数物下标数相匹配，除了 cvPtr1D 函数，它可以被用于顺序存取的1D，2D或nD密集数组 
+
+函数也可以用于稀疏数组，并且如果被需要的节点不存在函数可以创建这个节点并设置为0 
+
+就像其它获取数组元素的函数 (cvGet[Real]*D, cvSet[Real]*D)如果元素的下标超出了范围就会产生错误 
+
+==========
+
+读取矩阵数据[不可操作]
+cvGet*D
+返回特殊的数组元素 
+
+CvScalar cvGet1D( const CvArr* arr, int idx0 );
+CvScalar cvGet2D( const CvArr* arr, int idx0, int idx1 );
+CvScalar cvGet3D( const CvArr* arr, int idx0, int idx1, int idx2 );
+CvScalar cvGetND( const CvArr* arr, int* idx );
+arr 
+输入数组. 
+idx0 
+元素下标第一个以0为基准的成员 
+idx1 
+元素下标第二个以0为基准的成员 
+idx2 
+元素下标第三个以0为基准的成员 
+idx 
+元素下标数组 
+函数cvGet*D 返回指定的数组元素。对于稀疏数组如果需要的节点不存在函数返回0 （不会创建新的节点） 
+
+==========
+
+cvGetReal*D
+返回单通道数组的指定元素 
+
+double cvGetReal1D( const CvArr* arr, int idx0 );
+double cvGetReal2D( const CvArr* arr, int idx0, int idx1 );
+double cvGetReal3D( const CvArr* arr, int idx0, int idx1, int idx2 );
+double cvGetRealND( const CvArr* arr, int* idx );
+arr 
+输入数组，必须是单通道. 
+idx0 
+元素下标的第一个成员，以0为基准 
+idx1 
+元素下标的第二个成员，以0为基准 
+idx2 
+元素下标的第三个成员，以0为基准 
+idx 
+元素下标数组 
+函数cvGetReal*D 返回单通道数组的指定元素，如果数组是多通道的，就会产生运行时错误，而 cvGet*D 函数可以安全的被用于单通道和多通道数组，但他们运行时会有点慢 
+
+如果指定的点不存在对于稀疏数组点会返回0（不会创建新的节点）。 
+
+==========
+
+cvmSet
+为单通道浮点矩阵的指定元素赋值。 
+
+void cvmSet( CvMat* mat, int row, int col, double value );
+mat 
+矩阵. 
+row 
+行下标,以0为基点. 
+col 
+列下标,以0为基点. 
+value 
+矩阵元素的新值 
+函数cvmSet 是cvSetReal2D 快速替代,对于单通道浮点矩阵因为这个函数是内连的所以比较快,函数对于数组类型、数组元素类型的检查作的很少，并且仅在调式模式下检查数的行和列范围。 
+
+==========
+
+cvmGet
+返回单通道浮点矩阵指定元素 
+
+double cvmGet( const CvMat* mat, int row, int col );
+mat 
+输入矩阵. 
+row 
+行下标，以0为基点. 
+col 
+列下标，以0为基点 
+函数 cvmGet 是 cvGetReal2D对于单通道浮点矩阵的快速替代函数，函数运行比较快速因为它是内连函数 ，这个函数对于数组类型、数组元素类型的检查作的很少，并且仅在调式模式下检查数的行和列范围。

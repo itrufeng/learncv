@@ -1,0 +1,4 @@
+OpenCV矩阵类型
+	CV_<bit_depth>(S|U|F)C<number_of_channels>
+例如,32位浮点单通道类型：
+	CV_32FC1
