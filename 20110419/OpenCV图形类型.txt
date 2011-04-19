@@ -1,0 +1,51 @@
+IplImage 
+IPL 图像头 
+// 重要度分
+// width和height 图像的宽高
+// depth和nchannals 深度和通道
+	// depth:深度,一个像素用多少位，也决定了OpenCV图像的
+	// nchannals:类型通道数量：通道是指一个像素由几种颜色组成。如RGB三通道。RGBA四通道
+// origin和dataOrder
+	// origin:存储顺序，IPL_ORIGIN_TL(左上角),IPL_ORIGIN_BL(左下角)
+	// dataOrder:IPL_DATA_ORDER_PIXEL(所有像素点和不同的通道值排在一起，形成交错),IPL_DATA_ORDER_PLANE(所有像素通道值排在一起，形成平面)。OpenCV常用交错
+// widthStep
+	// 和CvMat的step一样。
+typedef struct _IplImage
+{
+int nSize; /* IplImage大小 */
+int ID; /* 版本 (=0)*/
+int nChannels; /* 大多数OPENCV函数支持1,2,3 或 4 个通道 */
+int alphaChannel; /* 被OpenCV忽略 */
+int depth; /* 像素的位深度: IPL_DEPTH_8U, IPL_DEPTH_8S, IPL_DEPTH_16U,
+IPL_DEPTH_16S, IPL_DEPTH_32S, IPL_DEPTH_32F and IPL_DEPTH_64F 可支持 */
+char colorModel[4]; /* 被OpenCV忽略 */
+char channelSeq[4]; /* 同上 */
+int dataOrder; /* 0 - 交叉存取颜色通道, 1 - 分开的颜色通道.
+cvCreateImage只能创建交叉存取图像 */
+int origin; /* 0 - 顶—左结构,
+1 - 底—左结构 (Windows bitmaps 风格) */
+int align; /* 图像行排列 (4 or 8). OpenCV 忽略它，使用 widthStep 代替 */
+int width; /* 图像宽像素数 */
+int height; /* 图像高像素数*/
+struct _IplROI *roi;/* 图像感兴趣区域. 当该值非空只对该区域进行处理 */
+struct _IplImage *maskROI; /* 在 OpenCV中必须置NULL */
+void *imageId; /* 同上*/
+struct _IplTileInfo *tileInfo; /*同上*/
+int imageSize; /* 图像数据大小(在交叉存取格式下imageSize=image->height*image->widthStep），单位字节*/
+char *imageData; /* 指向排列的图像数据 */
+int widthStep; /* 排列的图像行大小，以字节为单位 */
+int BorderMode[4]; /* 边际结束模式, 被OpenCV忽略 */
+int BorderConst[4]; /* 同上 */
+char *imageDataOrigin; /* 指针指向一个不同的图像数据结构（不是必须排列的），是为了纠正图像内存分配准备的 */
+}
+IplImage;
+IplImage结构来自于 Intel Image Processing Library（是其本身所具有的）。OpenCV 只支持其中的一个子集: 
+
+alphaChannel 在OpenCV中被忽略。 
+colorModel 和channelSeq 被OpenCV忽略。OpenCV颜色转换的唯一函数 cvCvtColor把原图像的颜色空间的目标图像的颜色空间作为一个参数。 
+dataOrder 必须是IPL_DATA_ORDER_PIXEL (颜色通道是交叉存取)，然而平面图像的被选择通道可以被处理，就像COI（感兴趣的通道）被设置过一样。 
+align 是被OpenCV忽略的，而用 widthStep 去访问后继的图像行。 
+不支持maskROI 。处理MASK的函数把他当作一个分离的参数。MASK在 OpenCV 里是 8-bit，然而在 IPL他是 1-bit。 
+tileInfo 不支持。 
+BorderMode和BorderConst是不支持的。每个 OpenCV 函数处理像素的邻近的像素，通常使用单一的固定代码边际模式。 
+除了上述限制，OpenCV处理ROI有不同的要求。要求原图像和目标图像的尺寸或 ROI的尺寸必须（根据不同的操作，例如cvPyrDown 目标图像的宽（高）必须等于原图像的宽（高）除以2 ±1)精确匹配，而IPL处理交叉区域，如图像的大小或ROI大小可能是完全独立的。
