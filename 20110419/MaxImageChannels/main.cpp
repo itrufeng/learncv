@@ -21,6 +21,15 @@ void saturation(IplImage *inputImage,int value){
 		}
 	}
 }
+// 提取区域图像
+IplImage* getsubimage(IplImage *inputImage,CvRect interest_rect){
+	IplImage *sub_img = cvCreateImageHeader(cvSize(interest_rect.width,interest_rect.height),inputImage->depth,inputImage->nChannels);
+	sub_img->origin = inputImage->origin;
+	sub_img->widthStep = inputImage->widthStep;
+	// inputImage->imageData + interest_rect.y * inputImage->widthStep：开始点下移interest_rect.y行，+ interest_rect.x * inputImage->nChannels:开始点右移动interest_rect.x列.
+	sub_img->imageData = inputImage->imageData + interest_rect.y * inputImage->widthStep + interest_rect.x * inputImage->nChannels;
+	return sub_img;
+}
 
 int main(int args,char *argv[]){
 	IplImage *oneimage;
@@ -33,9 +42,11 @@ int main(int args,char *argv[]){
 	// 设置感兴趣区域，只对这部分。设置后之对这部分处理 需要调用OpenCV系统函数.也不是所有的OpenCV函数都会处理ROI 下面注释区域为 系统函数。调用时候需要注掉saturation(oneimage,-50);
 //	cvSetImageROI(oneimage,rect);
 //	cvAddS(oneimage,cvScalar(180),oneimage);
-	saturation(oneimage,20);
+	// 提取区域图像
+	IplImage *subimage =getsubimage(oneimage,rect);
+	saturation(subimage,20);
 	// 取消感兴趣区域
-	cvResetImageROI(oneimage);
+//	cvResetImageROI(oneimage);
 	cvShowImage("saturation",oneimage);
 	cvWaitKey(0);
 	//
