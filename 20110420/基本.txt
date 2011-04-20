@@ -1,0 +1,65 @@
+cvAbs 计算数组中所以元素的绝对值
+cvAbsDiff 计算两个数组差值的绝对值
+cvAbsDiffS 计算数组和标量差值的绝对值
+cvAdd 两个数组的元素级的加运算
+cvAddS 计算数量和数组的和 
+cvAddWeighted 计算两数组的加权值的和
+cvAvg 计算数组元素的平均值
+cvAvgSdv 计算数组元素的平均值
+cvCalcCovarMatrix 计算向量集合的协方差矩阵
+cvCmp 比较两个数组元素P
+cvCmpS 比较数组的每个元素与数量的关系
+cvConvertScale 使用线性变换转换数组
+cvConvertScaleAbs 使用线性变换转换输入数组元素成8位无符号整型
+cvCopy 拷贝一个数组给另一个数组
+cvCountNonZero 计算非零数组元素
+cvCrossProduct 计算两个三维向量的叉积
+cvCvtColor 色彩空间转换
+cvDet 返回矩阵的行列式值
+cvDiv 两个数组每个元素相除
+cvDotProduct 用欧几里得准则计算两个数组的点积
+cvEigenVV 计算对称矩阵的特征值和特征向量
+cvFlip 垂直，水平或即垂直又水平翻转二维数组
+cvGEMM 通用矩阵乘法
+cvGetCol 通用矩阵乘法
+cvGetCols 返回数组的一列或一定跨度内的列
+cvGetDiag 返回一个数组对角线
+cvGetDims 返回数组维数和他们的大小或者特殊维的大小
+cvGetDimSize 返回数组维数和他们的大小或者特殊维的大小
+cvGetRow 返回数组的一行或在一定跨度内的行
+cvGetRows 返回数组的一行或在一定跨度内的行
+cvGetSize 返回矩阵或图像ROI的大小
+cvGetSubRect 返回输入的图像或矩阵的矩形数组子集的矩阵头
+cvInRange 检查数组元素是否在两个数组之间
+cvInRangeS 检查数组元素是否在两个数量之间
+cvInvert 查找矩阵的逆矩阵或伪逆矩阵
+cvMahalonobis 
+cvMax 查找两个数组中每个元素的较大值
+cvMaxS 查找数组元素与数量之间的较大值
+cvMerge 从几个单通道数组组合成多通道数组或插入一个单通道数组cvMin 查找两个数组元素之间 的较小值
+cvMinS 查找数组元素和数量之间的较大值
+cvMinMaxLoc 查找数组和子数组的全局最小值和最大值
+cvMul 计算两个数组中每个元素的积
+cvNot 计算数组元素的按位取反
+cvNorm 计算数组的绝对范数， 绝对差分范数或者相对差分范数
+cvNormalize 根据某种范数或者数值范围归一化数组
+cvOr 计算两个数组每个元素的按位或
+cvOrS 计算数组中每个元素与数量之间的按位或
+cvReduce 简化一个矩阵成为一个向量
+cvRepeat 用原数组管道式添充输出数组
+cvSet 在 OpenCV 的稀疏数据结构中， CvSet 是一基本结构
+cvSetZero 清空数组 
+cvSetIdentity 初始化带尺度的单位矩阵
+cvSolve 求解线性系统或者最小二乘法问题
+cvSplit 分割多通道数组成几个单通道数组或者从数组中提取一个通道
+cvSub 计算两个数组每个元素的差
+cvSubS 计算数组和数量之间的差
+cvSubRS 计算数量和数组之间的差
+cvSum 计算数组元素的和
+cvSVD 对实数浮点矩阵进行奇异值分解
+cvSVBkSb 奇异值回代算法（back substitution）
+cvTrace 返回矩阵的迹
+cvTranspose 矩阵的转置
+cvXor 计算两个数组中的每个元素的按位异或 
+cvXorS 计算数组元素与数量之间的按位异或
+cvZero 清空数组
