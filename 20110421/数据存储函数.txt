@@ -1,0 +1,29 @@
+打开&释放
+	cvOpenFileStorage　为读/写打开文件
+	cvReleaseFileStorage　释放
+写入
+	cvStartWriteStruct 开始写入新的数据结构
+	cvEndWriteStruct 结束写入数据结构
+	cvWriteInt 写入整型
+	cvWriteReal 写入浮点型
+	cvWriteString 写入字符串型
+	cvWriteComment 写入XML或者YAML
+	cvWrite 写入一个对象　例如CvMat.IplImage
+	cvWriteRawData 写入多个数值
+	cvWriteFileNode　将文件节点写入另一个文件存储器
+读取
+	cvGetRootFileNode 换取存储器最顶层的节点
+	cvGetFileNodeByName 在映图或存储器中找到相应节点
+	cvGetHashedKey 为名称返回一个唯一的指针
+	cvGetFileNode 在映图或文件存储器中找到节点
+	cvGetFileNodeName 返回文件的节点名
+	cvReadInt 读取一个无名称整型
+	cvReadIntByName 读取一个有名称的整型
+	cvReadReal 读取一个无名称的浮点型
+	cvReadRealByName 读取一个有名称
+	cvReadString 从文件节点中寻找字符串
+	cvReadStringByName 找到一个有名称的文件节点并返回它
+	cvRead 将对象解码返回并返回它的指针	cvReadByName 找到对象并解码
+	cvReadRawData 读取多个数值
+	cvStartReadRawData 初始化文件节点序列的读取
+	cvReadRawDataSlice　读取文件节点的内容
