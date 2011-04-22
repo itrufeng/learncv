@@ -1,0 +1,74 @@
+细说HighGUI　大话OpenCV
+
+分类
+	硬件部分:摄像机获取图像
+	文件部分:载入、保存图像
+	用户界面:图像显示、窗口创建、事件响应
+创建窗口
+	int cvNamedWindow( const char* name, int flags=CV_WINDOW_AUTOSIZE );
+	// flags CV_WINDOW_AUTOSIZE 随图像大小改变
+	// flags 0 自己手动调整
+得到窗口句柄
+	void* cvGetWindowHandle( const char* name );
+得到窗口名称
+	const char* cvGetWindowName( void* window_handle );
+改变窗口大小
+	void cvResizeWindow( const char* name, int width, int height );
+载入图像
+	IplImage* cvLoadImage( const char* filename, int flags=CV_LOAD_IMAGE_COLOR );
+保存图像
+	int cvSaveImage( const char* filename, const CvArr* image );
+显示图像
+	void cvShowImage( const char* name, const CvArr* image );
+事件触发
+	int cvWaitKey( int delay=0 );
+	// delay 等待触发时间。返回值为按的键的ASCII码
+鼠标事件
+	// 实现回调函数。void CvMouseCallback(int event,int x,int y,int flags,void* param);
+	// flags　为4个字节　每个字节8位　1位代表一个状态。例如CV_EVENT_FLAG_SHIFTKEY为16。用flages|CV_EVENT_FLAG_SHIFTKEY。与运算得知是否被触发Shift
+鼠标事件类型
+	CV_EVENT_MOUSEMOVE	0 
+	CV_EVENT_LBUTTONDOWN	1 
+	CV_EVENT_RBUTTONDOWN	2 
+	CV_EVENT_MBUTTONDOWN	3 
+	CV_EVENT_LBUTTONUP	4 
+	CV_EVENT_RBUTTONUP	5 
+	CV_EVENT_MBUTTONUP	6 
+	CV_EVENT_LBUTTONDBLCLK	7 
+	CV_EVENT_RBUTTONDBLCLK	8 
+	CV_EVENT_MBUTTONDBLCLK	9
+注册回调函数
+	void cvSetMouseCallback( const char* window_name, CvMouseCallback on_mouse, void* param=NULL );
+Sliders,Trackbars
+创建滑动条
+	int cvCreateTrackbar( const char* trackbar_name, const char* window_name,int* value, int count, CvTrackbarCallback on_change );
+滑动条回调函数实现
+	void (*callback) (int position);
+读取滑动条数值
+	int cvGetTrackbarPos( const char* trackbar_name, const char* window_name );
+设置滑动条的数值
+	void cvSetTrackbarPos( const char* trackbar_name, const char* window_name, int pos );
+初始化视频
+	CvCapture* cvCreateFileCapture( const char* filename );// 文件读取
+	CvCapture* cvCreateCameraCapture( int index ); // 摄像头读取
+读取视频
+	int cvGrabFrame( CvCapture* capture );// 从摄像头或者视频文件中抓取帧 得到下一帧
+	IplImage* cvRetrieveFrame( CvCapture* capture ); // 取回由函数cvGrabFrame抓取的图像.如果想保留处理后的图。请复制。
+	IplImage* cvQueryFrame( CvCapture* capture ); // 从摄像头或者文件中抓取并返回一帧。相当于执行以上2个方法
+读取视频属性
+	double cvGetCaptureProperty( CvCapture* capture, int property_id );
+设置视频属性
+	int cvSetCaptureProperty( CvCapture* capture, int property_id, double value );
+写入视频
+	// 需要一个CvVideoWriter结构
+	CvVideoWriter* cvCreateVideoWriter( const char* filename, int fourcc, double fps, CvSize frame_size, int is_color=1 );
+	// int fourcc 是　一个四字字符来标记编码格式　使用宏CV_FOURCC(char c0,char c1,char c2,char c3)来定义
+	int cvWriteFrame( CvVideoWriter* writer, const IplImage* image );
+	// 写入一帧
+关闭视频写入
+	void cvReleaseVideoWriter( CvVideoWriter** writer );
+特殊函数　ConvertImage
+	void cvConvertImage( const CvArr* src, CvArr* dst, int flags=0 );
+	// 图像格式转换
+	// 源图像可以是单、３、４通道。目标必须是8位的单、３通道的灰度图或彩色。
+	// flags 控制垂直旋转图像。在内存中彻底旋转的
