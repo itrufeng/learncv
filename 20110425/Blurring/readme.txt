@@ -17,7 +17,7 @@ Smooth
 // 简单无缩放的模糊 两个参数不可以相同。
 // 中值模糊 取值0-9 且只有一个参数
 // 高斯模糊 需要3个参数 
-// 双边滤波 需要4个参数
+// 双边滤波 需要4个参数 技巧。多处理几次 效果会很明显哦^ ^
 
 void cvSmooth( const CvArr* src, CvArr* dst,
 int smoothtype=CV_GAUSSIAN,
